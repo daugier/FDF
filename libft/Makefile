@@ -6,15 +6,16 @@
 #    By: daugier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 22:14:18 by daugier           #+#    #+#              #
-#    Updated: 2016/05/27 17:27:01 by daugier          ###   ########.fr        #
+#    Updated: 2016/06/01 23:09:45 by daugier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-HEAD = libft.h
+HEAD = -I ./include
 
 SRC = ft_atoi.c \
+	  ft_lenchar.c \
 	  ft_getmap.c \
 	  ft_split_space.c \
 	  get_next_line.c \
@@ -88,7 +89,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 $(NAME):
-	$(CC) $(CFLAGS) -c $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC) $(HEAD)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
