@@ -6,7 +6,7 @@
 #    By: daugier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/26 22:14:18 by daugier           #+#    #+#              #
-#    Updated: 2016/06/01 23:09:45 by daugier          ###   ########.fr        #
+#    Updated: 2016/06/12 17:30:33 by daugier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ HEAD = -I ./include
 SRC = ft_atoi.c \
 	  ft_lenchar.c \
 	  ft_getmap.c \
-	  ft_split_space.c \
+	  ft_convert_base.c \
 	  get_next_line.c \
 	  ft_sqrt.c \
 	  ft_print_tab.c \
