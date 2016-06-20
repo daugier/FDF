@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 21:36:34 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/12 17:31:45 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/20 18:31:00 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ typedef struct		s_list
 
 }					t_list;
 
-char				*ft_convert_base(char *str, char *base_from, char *base_to);
+char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
 int					ft_lenchar(char *str, char c);
-char				*ft_getmap(int fd);
+int					get_file(char *av, char **str);
+char				*ft_strsub_f(char const *s, unsigned int start, size_t len);
+char				*ft_strjoin_f(char const *s1, char const *s2);
+int					get_next_line(int const fd, char **line);
+int					ft_lenchar(char *str, char c);
 int					ft_sqrt(int nb);
 void				ft_print_tab(char **tab);
 int					ft_power(int nb, int power);

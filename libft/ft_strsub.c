@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 18:32:32 by daugier           #+#    #+#             */
-/*   Updated: 2016/05/27 17:10:24 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/19 23:53:10 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	while (s[start] && i < len)
 		cpy[i++] = s[start++];
 	cpy[i] = '\0';
-	free((char*)s);
 	return (cpy);
 }

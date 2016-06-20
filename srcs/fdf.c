@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 14:00:26 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/19 01:56:48 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/19 19:06:35 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,36 @@ void	ft_img_put_pixel(t_struct *data, int x, int y, unsigned int color)
 	unsigned int	g;
 	unsigned int	b;
 
-	b = (color & 0xFF0000);
-	g = (color & 0x00FF00);
-	r = (color & 0x0000FF);
-	DATA_ADD[y * SIZE_LINE + x * (BPP / 8)] = r;
-	DATA_ADD[y * SIZE_LINE + x * (BPP / 8) + 1] = g;
-	DATA_ADD[y * SIZE_LINE + x * (BPP / 8) + 2] = b;
+	b = (color & 0xFF0000 >> 16);
+	g = (color & 0xFF00 >> 8);
+	r = (color & 0xFF);
+	DATA[y * SIZE_LINE + x * (BPP / 8)] = r;
+	DATA[y * SIZE_LINE + x * (BPP / 8) + 1] = g;
+	DATA[y * SIZE_LINE + x * (BPP / 8) + 2] = b;
 }
 
-void	ft_fdf(t_struct *data)
+int		ft_fdf(t_struct *data, t_point *p)
 {
-	int	y;
-	int	x;
-	int	color;
+	int				y;
+	int				x;
+	int				color;
 
+	ft_init_point(p);
 	x = 0;
 	while (MAP[x])
 	{
 		y = 0;
 		while (MAP[x][y])
 		{
-			if (!(ALTITUDE = ft_atoi(MAP[x][y])))
-				ALTITUDE = 1;
 			color = ft_get_color(MAP[x][y]);
 			if (!(color = ft_get_color(MAP[x][y])))
-			{
-				color = 0x339900;
-				color = color * ALTITUDE * 30;
-			}
-			COLOR = mlx_get_color_value(MLX, color & 0xFFFFFF);
-			ft_img_put_pixel(data, y, x, COLOR);
+				color = 0xFFFFFF * ft_atoi(MAP[x][y]);
+			COLOR = mlx_get_color_value(MLX, color);
+			ft_img_put_pixel(data, y * ZOOM, x * ZOOM, COLOR);
 			y++;
 		}
 		x++;
 	}
-	return ;
+	PUT_IMG = mlx_put_image_to_window(MLX, WIN, IMG, 0, 0);
+	return (0);
 }

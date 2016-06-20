@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin_f.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/27 15:40:57 by daugier           #+#    #+#             */
-/*   Updated: 2016/05/28 17:05:43 by daugier          ###   ########.fr       */
+/*   Created: 2016/06/19 23:49:43 by daugier           #+#    #+#             */
+/*   Updated: 2016/06/19 23:50:39 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_getmap(int fd)
+char	*ft_strjoin_f(char const *s1, char const *s2)
 {
-	int		i;
-	int		ret;
 	char	*str;
-	char	buf[BUF_SIZE + 1];
+	int		i;
+	int		j;
 
 	i = 0;
-	str = (char*)malloc(sizeof(char) * 1);
-	str[0] = '\0';
-	ret = read(fd, buf, 1);
-	if (ret == 0)
-		str = NULL;
-	str = ft_strjoin(str, buf);
-	while ((ret = read(fd, buf, BUF_SIZE)) > 0)
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(str = (char*)malloc(sizeof(char) * ft_strlen(s1) +
+					ft_strlen(s2) + 1)))
+		return (NULL);
+	while (s1[i])
 	{
-		buf[ret] = '\0';
-		str = ft_strjoin(str, buf);
+		str[i] = s1[i];
+		i++;
 	}
-	if (ret == -1)
-	{
-		free(str);
-		str = NULL;
-	}
-	close(fd);
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	free((char*)s1);
 	return (str);
 }

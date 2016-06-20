@@ -6,12 +6,12 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 18:30:09 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/19 01:56:49 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/20 18:39:52 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H_
-# define FDF_H_
+#ifndef __FDF_H
+# define __FDF_H
 
 # include <mlx.h>
 # include <fcntl.h>
@@ -22,10 +22,18 @@
 # include <stdio.h>
 # include <math.h>
 # include "mlx.h"
-# include "../libft/include/libft.h"
+# include "../libft/includes/libft.h"
 
 # define HEXA "0123456789ABCDEF"
 # define DECI "0123456789"
+
+# define X p->x
+# define X1 p->x1
+# define X2 p->x2
+# define Y p->y
+# define Y1 p->y1
+# define Y2 p->y2
+
 # define CT1 data->ct1
 # define CT2 data->ct2
 # define TOP data->top
@@ -36,58 +44,55 @@
 # define WIN data->win
 # define IMG data->img
 # define BPP data->bit_per_pixel
-# define X data->x
-# define Y data->y
-# define Z data->z
-# define ALTITUDE data->altitude
-# define Y_TAIL data->y_tail
-# define X_TAIL data->x_tail
+# define Y_MAX data->y_max
+# define X_MAX data->x_max
 # define COLOR data->color_value
 # define PUT_IMG data->mlx_put_img
-# define DATA_ADD data->data_add
 # define ENDIAN data->endian
 # define SIZE_LINE data->size_line
 # define DATA data->data
 # define HEIGHT data->height
 # define WIDTH data->width
-# define E1 data->e1
-# define E2 data->e2
 # define MAP data->map
+
+typedef struct	s_point
+{
+	int				x;
+	int				x1;
+	int				x2;
+	int				y;
+	int				y1;
+	int				y2;
+}				t_point;
 
 typedef struct	s_struct
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	***map;
-	char	*data_add;
-	int		size_line;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			***map;
+	char			*data;
+	int				size_line;
 	unsigned int	color_value;
-	int		mlx_put_img;
-	int		ct1;
-	int		ct2;
-	int		x_tail;
-	int		altitude;
-	int		y_tail;
-	int		endian;
-	int		bit_per_pixel;
-	int		width;
-	int		zoom;
-	int		height_picture;
-	int		width_picture;
-	int		top;
-	int		height;
-	int		e1;
-	int		e2;
-	int		x;
-	int		y;
-	int		z;
+	int				mlx_put_img;
+	int				x_max;
+	int				y_max;
+	int				endian;
+	int				bit_per_pixel;
+	int				width;
+	int				height;
+	float			ct1;
+	float			ct2;
+	int				zoom;
+	int				height_picture;
+	int				width_picture;
+	int				top;
 }				t_struct;
 
-void			ft_stock_map(int fd, t_struct *data);
-t_struct		*ft_init_struct(int ac, int fd, char **av);
-void			ft_fdf(t_struct *data);
 void			ft_init_pos(t_struct *data);
+void			ft_init_point(t_point *p);
+t_struct		*ft_init_struct(char *av);
+int				ft_fdf(t_struct *data, t_point *p);
 void			ft_new_screen(t_struct *data);
 
 #endif

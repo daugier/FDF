@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 18:40:20 by daugier           #+#    #+#             */
-/*   Updated: 2016/05/27 15:14:07 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/17 18:03:58 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[j])
 		str[i++] = s2[j++];
 	str[i] = '\0';
-	free((char*)s1);
 	return (str);
 }
