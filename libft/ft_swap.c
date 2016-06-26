@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenchar.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: daugier <daugier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/01 17:17:25 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:40:19 by daugier          ###   ########.fr       */
+/*   Created: 2015/10/21 14:36:38 by daugier           #+#    #+#             */
+/*   Updated: 2015/10/21 14:51:32 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_lenchar(char *str, char c)
+void	ft_swap(int *a, int *b)
 {
-	int i;
-	int	j;
+	int change;
 
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			j++;
-			while (str[i] != c && str[i])
-				i++;
-			i--;
-		}
-		i++;
-	}
-	return (j);
+	change = *a;
+	*a = *b;
+	*b = change;
 }

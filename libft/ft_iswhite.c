@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenchar.c                                       :+:      :+:    :+:   */
+/*   ft_iswhite.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/01 17:17:25 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:40:19 by daugier          ###   ########.fr       */
+/*   Created: 2016/06/26 22:18:46 by daugier           #+#    #+#             */
+/*   Updated: 2016/06/26 22:20:08 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lenchar(char *str, char c)
+int		ft_iswhite(char c)
 {
-	int i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			j++;
-			while (str[i] != c && str[i])
-				i++;
-			i--;
-		}
-		i++;
-	}
-	return (j);
+	if (c != ' ' && c != '\n')
+		return (0);
+	return (1);
 }

@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenchar.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/01 17:17:25 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:40:19 by daugier          ###   ########.fr       */
+/*   Created: 2016/06/21 00:42:30 by daugier           #+#    #+#             */
+/*   Updated: 2016/06/21 01:07:31 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lenchar(char *str, char c)
+char	*ft_strrev(char *str)
 {
-	int i;
-	int	j;
+	int		i;
+	int		j;
+	char	*cpy;
 
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			j++;
-			while (str[i] != c && str[i])
-				i++;
-			i--;
-		}
-		i++;
-	}
-	return (j);
+	i = ft_strlen(str);
+	j = -1;
+	if (!(cpy = (char*)malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	cpy[i--] = '\0';
+	while (str[++j])
+		cpy[i--] = str[j];
+	return (cpy);
 }

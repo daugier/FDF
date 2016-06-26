@@ -6,11 +6,11 @@
 #    By: daugier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/24 23:04:21 by daugier           #+#    #+#              #
-#    Updated: 2016/06/01 23:34:18 by daugier          ###   ########.fr        #
+#    Updated: 2016/06/26 20:22:19 by daugier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FDF
+NAME = fdf
 
 RM	= rm -f
 
@@ -25,6 +25,8 @@ MLX = -lmlx -framework OpenGL -framework AppKit
 SRCS = 	srcs/fdf.c \
 		srcs/ft_stock_map.c \
 		srcs/main.c \
+		srcs/ft_line.c \
+		srcs/windows_param.c \
 
 OBJS = $(SRCS:.c=.o)
 

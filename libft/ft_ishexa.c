@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenchar.c                                       :+:      :+:    :+:   */
+/*   ft_ishexa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/01 17:17:25 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:40:19 by daugier          ###   ########.fr       */
+/*   Created: 2016/06/26 22:15:27 by daugier           #+#    #+#             */
+/*   Updated: 2016/06/26 22:34:05 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lenchar(char *str, char c)
+int		ft_ishexa(char c)
 {
-	int i;
-	int	j;
+	char	*str;
+	int		i;
 
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			j++;
-			while (str[i] != c && str[i])
-				i++;
-			i--;
-		}
-		i++;
-	}
-	return (j);
+	i = -1;
+	str = "0123456789ABCDEFabcdefx";
+	while (str[++i])
+		if (str[i] == c)
+			return (1);
+	return (0);
 }

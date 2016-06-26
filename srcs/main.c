@@ -6,56 +6,112 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 18:54:21 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/20 18:35:34 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/27 00:57:04 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		key_func(int keycode, t_struct *data)
+static void		free_all(t_struct *data)
 {
-	ft_new_screen(data);
-	if (keycode == 53)
-		exit(EXIT_SUCCESS);
+	int	x;
+	int	y;
+
+	x = -1;
+	while (MAP[++x])
+	{
+		y = -1;
+		while (MAP[x][++y])
+			free(MAP[X][Y]);
+	}
+	free(MAP);
+	MAP = NULL;
+	x = -1;
+	while (BUFF[++x])
+		free(BUFF[x]);
+	free(BUFF);
+	BUFF = NULL;
+	free(BUFFER);
+	free(MLX);
+	free(IMG);
+	free(WIN);
+	free(DATA);
+	free(data);
+	data = NULL;
+}
+
+static void		change_color(int keycode, t_struct *data)
+{
+	if (keycode > 17 && keycode < 26)
+		COLORE = 1;
+	if (keycode == 50)
+		COLORE = 0;
+	if (keycode == 18)
+		COLOR = 0xFF0000;
+	if (keycode == 19)
+		COLOR = 0x00FF00;
+	if (keycode == 20)
+		COLOR = 0x0000FF;
+	if (keycode == 21)
+		COLOR = 0xFFFF00;
+	if (keycode == 23)
+		COLOR = 0x00FFFF;
+	if (keycode == 22)
+		COLOR = 0xFF00FF;
+	if (keycode == 26)
+		COLOR = 0xFFFFFF;
+}
+
+static void		moove_map(int keycode, t_struct *data)
+{
 	if (keycode == 126 || keycode == 125)
-		H_PIC += keycode == 126 ? 10 : -10;
+		H_PIC += keycode == 126 ? -30 : 30;
 	if (keycode == 123 || keycode == 124)
-		W_PIC += keycode == 124 ? 10 : -10;
+		W_PIC += keycode == 124 ? 30 : -30;
 	if (keycode == 69 || keycode == 78)
 		TOP += keycode == 69 ? 1 : -1;
+	if (keycode == 67 || keycode == 75)
+	{
+		if (A - 0.4 > 0.4 && keycode == 75)
+			A += -0.4;
+		else if (keycode == 67)
+			A += 0.4;
+	}
+}
+
+static int		key_func(int keycode, t_struct *data)
+{
+	ft_new_screen(data);
+	change_color(keycode, data);
+	moove_map(keycode, data);
+	if (keycode == 53)
+		exit(EXIT_SUCCESS);
 	if (keycode == 116 || keycode == 121)
-		ZOOM += keycode == 116 ? 2 : -2;
-	if (keycode == 8)
-		(CT1 += CT1 > 1 ? 0.1 : 0) && (CT2 += CT2 < 1 ? 0.1 : 0);
-	if (keycode == 9)
-		(CT1 += CT1 > 0.5 ? 0.1 : 0) && (CT2 += CT2 > 0.5 ? 0.1 : 0);
+	{
+		if (ZOOM - 2 > 0 && keycode == 121)
+			ZOOM -= 2;
+		else if (keycode == 116)
+			ZOOM += 2;
+	}
 	if (keycode == 36)
 		ft_init_pos(data);
 	return (1);
 }
 
-void	ft_check_good_file(int ac)
-{
-	if (ac == 3 || ac > 4 || ac == 1)
-	{
-		ft_putstr("Usage : ./fdf <filename> [ case_size z_size ]\n");
-		exit(EXIT_FAILURE);
-	}
-}
-
-int		main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_struct		*data;
-	t_point			*p;
 
-	if (!(p = (t_point *)malloc(sizeof(t_point))))
+	if (ac == 3 || ac > 4 || ac == 1)
+	{
+		ft_putstr("Usage : ./fdf <filename>\n");
 		exit(EXIT_FAILURE);
-	ft_check_good_file(ac);
+	}
 	data = ft_init_struct(av[1]);
-	data = ft_init_struct(av[1]);
-	//mlx_expose_hook(MLX,ft_fdf, data);
+	ft_fdf(data);
 	mlx_key_hook(WIN, key_func, data);
 	mlx_loop_hook(MLX, ft_fdf, data);
 	mlx_loop(MLX);
+	free_all(data);
 	return (0);
 }

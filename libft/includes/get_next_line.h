@@ -6,14 +6,14 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/29 15:40:39 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/19 23:22:28 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/26 22:02:24 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 100
+# define BUFF_SIZE 4096
 
 # include <stdlib.h>
 # include <sys/types.h>

@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 21:36:34 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/20 18:31:00 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/26 23:56:40 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <string.h>
 # include "get_next_line.h"
 
+# define DECI "0123456789"
+# define HEXA "0123456789ABCDEF"
+
 typedef struct		s_list
 {
 	void			*content;
@@ -26,9 +29,15 @@ typedef struct		s_list
 
 }					t_list;
 
+int					ft_iswhite(char c);
+int					ft_ishexa(char c);
+void				ft_swap(int *a, int *b);
+int					ft_recursive_power(int nb, int power);
+int					ft_convert_ten(char *nbr, char *base_from);
+char				*ft_strrev(char *str);
 char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
 int					ft_lenchar(char *str, char c);
-int					get_file(char *av, char **str);
+char				*get_file(char *av);
 char				*ft_strsub_f(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin_f(char const *s1, char const *s2);
 int					get_next_line(int const fd, char **line);

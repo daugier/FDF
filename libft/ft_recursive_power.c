@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenchar.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/01 17:17:25 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:40:19 by daugier          ###   ########.fr       */
+/*   Created: 2016/06/21 00:51:53 by daugier           #+#    #+#             */
+/*   Updated: 2016/06/21 00:53:00 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lenchar(char *str, char c)
+int		ft_recursive_power(int nb, int power)
 {
-	int i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			j++;
-			while (str[i] != c && str[i])
-				i++;
-			i--;
-		}
-		i++;
-	}
-	return (j);
+	if (power > 1)
+		return (nb * (ft_recursive_power(nb, power - 1)));
+	else if (power == 0)
+		return (1);
+	else if (power == 1)
+		return (nb);
+	return (0);
 }
