@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 18:54:21 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:57:04 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/08 15:21:45 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,16 @@
 static void		free_all(t_struct *data)
 {
 	int	x;
-	int	y;
 
 	x = -1;
 	while (MAP[++x])
-	{
-		y = -1;
-		while (MAP[x][++y])
-			free(MAP[X][Y]);
-	}
+		ft_free_tab(MAP[x]);
 	free(MAP);
-	MAP = NULL;
 	x = -1;
 	while (BUFF[++x])
 		free(BUFF[x]);
 	free(BUFF);
-	BUFF = NULL;
 	free(BUFFER);
-	free(MLX);
-	free(IMG);
-	free(WIN);
-	free(DATA);
 	free(data);
 	data = NULL;
 }
@@ -59,7 +48,10 @@ static void		change_color(int keycode, t_struct *data)
 	if (keycode == 22)
 		COLOR = 0xFF00FF;
 	if (keycode == 26)
-		COLOR = 0xFFFFFF;
+	{
+		COLOR = 0xCccccc;
+		COLORE = 2;
+	}
 }
 
 static void		moove_map(int keycode, t_struct *data)
@@ -85,7 +77,10 @@ static int		key_func(int keycode, t_struct *data)
 	change_color(keycode, data);
 	moove_map(keycode, data);
 	if (keycode == 53)
+	{
+		free_all(data);
 		exit(EXIT_SUCCESS);
+	}
 	if (keycode == 116 || keycode == 121)
 	{
 		if (ZOOM - 2 > 0 && keycode == 121)

@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 14:00:26 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 01:01:34 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/08 15:01:59 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ int		define_x(t_struct *data, int x, int y)
 int		define_y(t_struct *data, int x, int y)
 {
 	Z = TOP * ft_atoi(MAP[x][y]);
-	if (!COLOR)
+	if (!COLOR || COLORE == 2)
 	{
 		if (Z > 100)
-			COLOR = mlx_get_color_value(MLX, 0x990000);
+			COLOR = mlx_get_color_value(MLX, COLOR + 0xFF0000);
 		if (Z <= 100 && Z > 40)
-			COLOR = mlx_get_color_value(MLX, 0xCC0033);
+			COLOR = mlx_get_color_value(MLX, COLOR + 0xFF3300);
 		if (Z <= 40 && Z > 0)
-			COLOR = mlx_get_color_value(MLX, 0xFF6600);
+			COLOR = mlx_get_color_value(MLX, COLOR + 0xFF6600);
 		if (Z <= 0 && Z > -20)
-			COLOR = mlx_get_color_value(MLX, 0x33CC00);
+			COLOR = mlx_get_color_value(MLX, COLOR + 0xFF9900);
 		if (Z <= -20)
-			COLOR = mlx_get_color_value(MLX, 0xFFCC00);
+			COLOR = mlx_get_color_value(MLX, COLOR + 0xFFCC00);
 	}
 	return ((ZOOM * (CT1 / A * y + CT2 / A * x) - Z) + (HEIGHT / 3 + H_PIC));
 }

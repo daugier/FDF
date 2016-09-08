@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/26 20:16:52 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:47:27 by daugier          ###   ########.fr       */
+/*   Updated: 2016/06/27 20:08:54 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ static void		write_color_screen(t_struct *data)
 
 static void		write_data_screen(t_struct *data)
 {
-	mlx_string_put(MLX, WIN, 5, 25, 0xFFFFFF, "x    = ");
-	mlx_string_put(MLX, WIN, 70, 25, 0xFFFFFF, ft_itoa(X));
-	mlx_string_put(MLX, WIN, 5, 40, 0xFFFFFF, "y    = ");
-	mlx_string_put(MLX, WIN, 70, 40, 0xFFFFFF, ft_itoa(Y));
-	mlx_string_put(MLX, WIN, 5, 55, 0xFFFFFF, "zoom = ");
-	mlx_string_put(MLX, WIN, 70, 55, 0xFFFFFF, ft_itoa(ZOOM));
-	mlx_string_put(MLX, WIN, 5, 70, 0xFFFFFF, "a    = ");
-	mlx_string_put(MLX, WIN, 70, 70, 0xFFFFFF, ft_itoa(A));
+	mlx_string_put(MLX, WIN, 5, 25, 0xcccccc, "x    = ");
+	mlx_string_put(MLX, WIN, 70, 25, 0xcccccc, ft_itoa(X));
+	mlx_string_put(MLX, WIN, 5, 40, 0xcccccc, "y    = ");
+	mlx_string_put(MLX, WIN, 70, 40, 0xcccccc, ft_itoa(Y));
+	mlx_string_put(MLX, WIN, 5, 55, 0xcccccc, "zoom = ");
+	mlx_string_put(MLX, WIN, 70, 55, 0xcccccc, ft_itoa(ZOOM));
+	mlx_string_put(MLX, WIN, 5, 70, 0xcccccc, "a    = ");
+	mlx_string_put(MLX, WIN, 70, 70, 0xcccccc, ft_itoa(A));
 }
 
 void			write_screen(t_struct *data)
