@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 18:54:21 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/08 15:21:45 by daugier          ###   ########.fr       */
+/*   Updated: 2016/09/27 14:20:05 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void		change_color(int keycode, t_struct *data)
 		COLOR = 0xFF00FF;
 	if (keycode == 26)
 	{
-		COLOR = 0xCccccc;
+		COLOR = 0xCcc00C;
 		COLORE = 2;
 	}
 }
@@ -69,6 +69,8 @@ static void		moove_map(int keycode, t_struct *data)
 		else if (keycode == 67)
 			A += 0.4;
 	}
+	if (keycode == 48)
+		COLORE = 3;
 }
 
 static int		key_func(int keycode, t_struct *data)
@@ -104,8 +106,8 @@ int				main(int ac, char **av)
 	}
 	data = ft_init_struct(av[1]);
 	ft_fdf(data);
-	mlx_key_hook(WIN, key_func, data);
 	mlx_loop_hook(MLX, ft_fdf, data);
+	mlx_key_hook(WIN, key_func, data);
 	mlx_loop(MLX);
 	free_all(data);
 	return (0);
