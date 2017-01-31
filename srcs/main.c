@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 18:54:21 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/27 14:20:05 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 16:37:24 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ static void		change_color(int keycode, t_struct *data)
 {
 	if (keycode > 17 && keycode < 26)
 		COLORE = 1;
-	if (keycode == 50)
-		COLORE = 0;
-	if (keycode == 18)
-		COLOR = 0xFF0000;
 	if (keycode == 19)
-		COLOR = 0x00FF00;
+		COLORE = 0;
 	if (keycode == 20)
-		COLOR = 0x0000FF;
+		COLOR = 0xFF0000;
 	if (keycode == 21)
-		COLOR = 0xFFFF00;
-	if (keycode == 23)
-		COLOR = 0x00FFFF;
+		COLOR = 0x00FF00;
 	if (keycode == 22)
-		COLOR = 0xFF00FF;
+		COLOR = 0x0000FF;
+	if (keycode == 23)
+		COLOR = 0xFFFF00;
 	if (keycode == 26)
+		COLOR = 0x00FFFF;
+	if (keycode == 28)
+		COLOR = 0xFF00FF;
+	if (keycode == 25)
 	{
 		COLOR = 0xCcc00C;
 		COLORE = 2;
@@ -69,13 +69,12 @@ static void		moove_map(int keycode, t_struct *data)
 		else if (keycode == 67)
 			A += 0.4;
 	}
-	if (keycode == 48)
+	if (keycode == 18)
 		COLORE = 3;
 }
 
 static int		key_func(int keycode, t_struct *data)
 {
-	ft_new_screen(data);
 	change_color(keycode, data);
 	moove_map(keycode, data);
 	if (keycode == 53)

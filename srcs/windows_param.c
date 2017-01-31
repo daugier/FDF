@@ -6,39 +6,38 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/26 20:16:52 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 20:08:54 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 16:39:36 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		write_color_screen(t_struct *data)
+static void		write_info_screen(t_struct *data)
 {
-	mlx_string_put(MLX, WIN, 5, 0, 0xFF0000, "1");
-	mlx_string_put(MLX, WIN, 20, 0, 0x00FF00, "2");
-	mlx_string_put(MLX, WIN, 35, 0, 0x0000FF, "3");
-	mlx_string_put(MLX, WIN, 50, 0, 0xFFFF00, "4");
-	mlx_string_put(MLX, WIN, 65, 0, 0x00FFFF, "5");
-	mlx_string_put(MLX, WIN, 80, 0, 0xFFF00FF, "6");
-	mlx_string_put(MLX, WIN, 95, 0, 0xFFFFFF, "7");
-}
-
-static void		write_data_screen(t_struct *data)
-{
-	mlx_string_put(MLX, WIN, 5, 25, 0xcccccc, "x    = ");
-	mlx_string_put(MLX, WIN, 70, 25, 0xcccccc, ft_itoa(X));
-	mlx_string_put(MLX, WIN, 5, 40, 0xcccccc, "y    = ");
-	mlx_string_put(MLX, WIN, 70, 40, 0xcccccc, ft_itoa(Y));
-	mlx_string_put(MLX, WIN, 5, 55, 0xcccccc, "zoom = ");
-	mlx_string_put(MLX, WIN, 70, 55, 0xcccccc, ft_itoa(ZOOM));
-	mlx_string_put(MLX, WIN, 5, 70, 0xcccccc, "a    = ");
-	mlx_string_put(MLX, WIN, 70, 70, 0xcccccc, ft_itoa(A));
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 100, 5, 0x00bfff,
+			"Touches disponibles");
+	mlx_string_put(MLX, WIN, 20, 25, 0x00bfff, "Entrer   -> Reset");
+	mlx_string_put(MLX, WIN, 20, 40, 0x00bfff, "+ ou -   -> Hauteur");
+	mlx_string_put(MLX, WIN, 20, 55, 0x00bfff, "/ ou *   -> Angle");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 125, 25, 0x00bfff,
+			"Fleche gauche -> Gauche");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 125, 40, 0x00bfff,
+			"Fleche droite -> Droite");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 125, 55, 0x00bfff,
+			"Fleche bas    -> Bas");
+	mlx_string_put(MLX, WIN, (WIDTH / 2) - 125, 70, 0x00bfff,
+			"Fleche haut   -> Haut");
+	mlx_string_put(MLX, WIN, (WIDTH - 290), 25, 0x00bfff,
+			"De 1 a 9      -> Couleur");
+	mlx_string_put(MLX, WIN, (WIDTH - 290), 40, 0x00bfff,
+			"Page up       -> Zoomer");
+	mlx_string_put(MLX, WIN, (WIDTH - 290), 55, 0x00bfff,
+			"Page down     -> Dezoomer");
 }
 
 void			write_screen(t_struct *data)
 {
-	write_color_screen(data);
-	write_data_screen(data);
+	write_info_screen(data);
 }
 
 void			ft_new_screen(t_struct *data)

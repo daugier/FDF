@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 14:05:19 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/27 14:20:19 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/22 21:08:35 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	write_data_pixel(t_struct *data)
 
 int		ft_fdf(t_struct *data)
 {
+	ft_new_screen(data);
 	draw_line_x(data);
 	draw_line_y(data);
 	mlx_put_image_to_window(MLX, WIN, IMG, 0, 0);

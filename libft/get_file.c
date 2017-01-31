@@ -6,11 +6,12 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 23:55:34 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 00:29:02 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 16:39:57 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static char		*file_error(char *av)
 {

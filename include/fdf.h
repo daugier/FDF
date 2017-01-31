@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 18:30:09 by daugier           #+#    #+#             */
-/*   Updated: 2016/06/27 20:56:51 by daugier          ###   ########.fr       */
+/*   Updated: 2017/01/31 16:42:30 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # define WIDTH data->width
 # define MAP data->map
 
-typedef struct	s_struct
+typedef struct		s_struct
 {
 	int					xinc;
 	int					yinc;
@@ -97,7 +97,7 @@ typedef struct	s_struct
 	int					height_picture;
 	int					width_picture;
 	int					top;
-}				t_struct;
+}					t_struct;
 
 void				write_screen(t_struct *data);
 void				write_data_pixel(t_struct *data);

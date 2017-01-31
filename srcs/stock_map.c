@@ -6,7 +6,7 @@
 /*   By: daugier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 16:50:45 by daugier           #+#    #+#             */
-/*   Updated: 2016/09/06 18:03:07 by daugier          ###   ########.fr       */
+/*   Updated: 2016/10/22 21:08:40 by daugier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ t_struct		*ft_init_struct(char *av)
 		exit(EXIT_FAILURE);
 	stock_map(av, data);
 	ft_init_pos(data);
-	BPP = 24;
-	ENDIAN = 1;
 	WIDTH += (X_MAX * 100 < 1800) ? X_MAX * 100 : 1800;
 	HEIGHT += (Y_MAX * 100 < 1100) ? X_MAX * 100 : 1100;
 	SIZE_LINE = WIDTH * (BPP / 8);
