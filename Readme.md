@@ -12,8 +12,6 @@
 <p align="center">
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img1.png"/>
     <br/>
-    <img width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img1.png"/>
-    <br/>
     <img width="60%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img2.png"/>
     <br/>
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img3.png"/>
