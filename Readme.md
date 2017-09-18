@@ -3,7 +3,7 @@
     <span>
         Le but de ce projet est de tracer des lignes entre les diffents point de la map qu'on lui rentre en parametre en prenant en compte la hauteur et la couleur.
     </span>
-    <h2>Exemple de Map</h2>
+    <h2 align="center">Exemple de Map</h2>
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img4.png"/>
 </p>
 <p align="center">
