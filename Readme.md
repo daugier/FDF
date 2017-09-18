@@ -4,9 +4,9 @@
 </span>
 <h2 align="center">Exemple de Map</h2>
 <p align="center">
-    <img align="center" width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img5.png"/>
+    <img align="center" width="40%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img5.png"/>
     <br/>
-    <img align="center" width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img6.png"/>
+    <img align="center" width="60%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img6.png"/>
 </p>
 <h2 align="center">Exemple rendu du programme</h2>
 <p align="center">
