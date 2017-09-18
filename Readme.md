@@ -7,6 +7,7 @@
     <img align="center" width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img5.png"/>
     <img align="center" width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img6.png"/>
 </p>
+<h2 align="center">Exemple rendu du programme</h2>
 <p align="center">
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img1.png"/>
     <br/>
