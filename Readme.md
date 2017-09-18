@@ -4,7 +4,8 @@
 </span>
 <h2 align="center">Exemple de Map</h2>
 <p align="center">
-    <img align="center" width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img4.png"/>
+    <img align="center" width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img5.png"/>
+    <img align="center" width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img6.png"/>
 </p>
 <p align="center">
     <img width="70%" src="https://raw.githubusercontent.com/daugier/fdf/master/img/img1.png"/>
